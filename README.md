@@ -1,6 +1,6 @@
 ![build](../../workflows/build/badge.svg)
 
-A FUSE file system backed by an sqlite database.
+A FUSE file system backed by an MySql database.
 
 At present this is about as simple an implementation as I could make, and this
 was done on purpose since it gives a nice starting point from which to build a
@@ -18,6 +18,7 @@ more complete or bespoke solution.
 ##### Python #####
 
 * pyfuse3
+* PyMySQL
 
 
 #### Installation ####
