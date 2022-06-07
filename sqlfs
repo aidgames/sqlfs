@@ -89,7 +89,7 @@ def parse_options(options):
 
 
 def parse_args(argv):
-    parser = argparse.ArgumentParser(description='SQLite FUSE file system')
+    parser = argparse.ArgumentParser(description='Mysql FUSE file system')
     parser.add_argument('database', nargs='?', default=':memory:', help='Database file')
     parser.add_argument('mountpoint', help='Mountpoint')
     parser.add_argument('-o', '--options', action='append', default=[], metavar='opt', help='Mount options')
