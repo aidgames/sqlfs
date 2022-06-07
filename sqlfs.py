@@ -2,6 +2,8 @@ import os
 import stat
 import time
 import errno
+import pymysql
+import pymysql.cursors
 import sqlite3
 import hashlib
 import pyfuse3
@@ -17,7 +19,10 @@ else:
 class Database:
 
     def __init__(self, db_path, key=None):
-        self.conn = sqlite3.connect(db_path)
+        user,a=db_path.split(":", limit=1)
+        password,a=a.split("@", limit=1)
+        host, database=a.split("/", limit=1)
+        self.conn = pymysql.connect(host=host, password=password, user=user, database=database,cursorclass=pymysql.cursors.DictCursor)
         self.conn.row_factory = sqlite3.Row
         self.init_tables(key)
 
