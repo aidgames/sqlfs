@@ -19,9 +19,9 @@ else:
 class Database:
 
     def __init__(self, db_path, key=None):
-        user,a=db_path.split(":", limit=1)
-        password,a=a.split("@", limit=1)
-        host, database=a.split("/", limit=1)
+        user,a=db_path.split(":", maxsplit=1)
+        password,a=a.split("@", maxsplit=1)
+        host, database=a.split("/", maxsplit=1)
         self.conn = pymysql.connect(host=host, password=password, user=user, database=database,cursorclass=pymysql.cursors.DictCursor)
         self.conn.row_factory = sqlite3.Row
         self.init_tables(key)
